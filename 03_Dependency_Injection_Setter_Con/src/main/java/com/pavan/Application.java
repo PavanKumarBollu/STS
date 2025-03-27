@@ -9,6 +9,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import com.pavan.components.StudentConstructor;
+import com.pavan.components.StudentSetter;
+
 @SpringBootApplication
 public class Application {
 	
@@ -36,6 +39,16 @@ public class Application {
 		System.out.println("************* Container Started ****************\n");
 		
 		System.out.println("Beans Created By Container :: " + Arrays.toString(context.getBeanDefinitionNames()) + "\n");
+		
+		StudentSetter std = context.getBean(StudentSetter.class);
+		
+		System.out.println(std +"\n");
+		System.out.println(std.getSubjectOpted() +"\n");
+		
+		
+		StudentConstructor std2 = context.getBean(StudentConstructor.class);
+		System.out.println(std2 +"\n");
+		System.out.println(std2.getSubjectOpted() +"\n");
 		
 		
 				
