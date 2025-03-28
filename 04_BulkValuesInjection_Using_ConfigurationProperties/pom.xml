@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>Pavan</groupId>
-	<artifactId>03_BulkValuesInjection_Using_ConfigurationProperties</artifactId>
+	<artifactId>04_BulkValuesInjection_Using_ConfigurationProperties</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>02_Dependency_Injection-1</name>
+	<name>04_BulkValuesInjection_Using_ConfigurationProperties</name>
 	<description>Project On Dependecy Injection Of feild Level and setter level constructor level</description>
 	<url/>
 	<licenses>
