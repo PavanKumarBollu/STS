@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "info.item.idly",
+    "type": "java.lang.String",
+    "description": "A description for 'info.item.idly'"
+  },
+  {
+    "name": "info.item.vada",
+    "type": "java.lang.String",
+    "description": "A description for 'info.item.vada'"
+  },
+]}

@@ -21,7 +21,7 @@ public class Company_2 {
 	
 	public Company_2()
 	{
-		System.out.println("company_2 zero param constructo got called .....\n");
+		System.out.println("company_2  zero param constructo got called .....\n");
 	}
 
 	public String getName() {
