@@ -14,7 +14,7 @@ public class Application {
 		ApplicationContext context = SpringApplication.run(Application.class, args);
 		
 		
-		BillGenarator bill = context.getBean(BillGenarator.class);
+		BillGenarator bill = context.getBean("bill",BillGenarator.class);
 		
 		System.out.println(bill);
 
