@@ -6,11 +6,13 @@ import java.util.Map;
 import java.util.Set;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 
 @Component
 @ConfigurationProperties(prefix = "emp.info")
+//@PropertySource(value="app.yml")
 public class Employee {
 
 	private String name;

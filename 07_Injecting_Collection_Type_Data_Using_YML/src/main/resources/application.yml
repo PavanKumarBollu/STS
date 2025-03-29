@@ -1,0 +1,38 @@
+emp:
+  info:
+    name: PavanKumar
+    id: 10
+    skills: 
+       - java
+       - SpringBoot
+       - MicroServices
+       - CoreJava
+       - Spring
+    team-members: 
+       - Padma
+       - Krishna	
+    phone-numbers:
+       - 1234567890
+       - 0987654321
+       - 1234512345
+
+
+    id-details:
+       adharNo: 78123147912431
+       voterId: fsafaf@341
+    company: 
+       title: PavanTechnologies
+       location: Hyderabad
+       size: 10000
+ 
+
+
+
+
+
+
+
+
+
+
+
