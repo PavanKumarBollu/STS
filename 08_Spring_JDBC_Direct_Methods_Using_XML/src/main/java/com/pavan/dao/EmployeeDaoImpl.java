@@ -1,0 +1,38 @@
+package com.pavan.dao;
+
+import java.util.List;
+import java.util.Map;
+
+public class EmployeeDaoImpl implements IEmployeeDao {
+
+	@Override
+	public int getEmpsCount() {
+		return 0;
+	}
+
+	@Override
+	public String getEmployeeNameByNo(int eno) {
+		return null;
+	}
+
+	@Override
+	public Map<String, Object> getEmployeeDetailsByNo(int eno) {
+		return null;
+	}
+
+	@Override
+	public List<Map<String, Object>> getEmployeeDeatilsByDesignation(String desg1, String desg2) {
+		return null;
+	}
+
+	@Override
+	public int insertEmp(String ename, int eage, String eaddress, String desg, int salary) {
+		return 0;
+	}
+
+	@Override
+	public int addBonusToEmpByDesg(String desg, int bonus) {
+		return 0;
+	}
+
+}
