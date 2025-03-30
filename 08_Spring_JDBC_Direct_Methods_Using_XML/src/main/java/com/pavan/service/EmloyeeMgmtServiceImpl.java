@@ -1,21 +1,21 @@
-package com.pavan.dao;
+package com.pavan.service;
 
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.jdbc.core.JdbcTemplate;
+import com.pavan.dao.IEmployeeDao;
 
-public class EmployeeDaoImpl implements IEmployeeDao {
+public class EmloyeeMgmtServiceImpl implements IEmployeeMangementService {
+
+	private IEmployeeDao dao;
 	
-	private JdbcTemplate jdbcTemplate;
-	
-	
-	public EmployeeDaoImpl(JdbcTemplate jdbcTemplate) {
-		this.jdbcTemplate = jdbcTemplate;
+	public EmloyeeMgmtServiceImpl(IEmployeeDao dao) {
+		this.dao = dao;
 	}
 
 	@Override
-	public int getEmpsCount() {
+	public int fetchEmpsCount() {
+		
 		return 0;
 	}
 
