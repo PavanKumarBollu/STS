@@ -1,7 +1,7 @@
 package com.pavan;
 
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
@@ -33,23 +33,24 @@ public class Application {
 		System.out.println();
 		System.out.println("********************************************************************************");
 		
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter dateformat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+		String formattedDate = now.format(dateformat);
+		
 		EmployeeDto dto = new EmployeeDto();
-		dto.setEmployeeId(null);
-		dto.setEmployeeNumber(null);
-		dto.setEmailId(email);
-		dto.setPassword(email);
-		dto.setCreatedBy(null);
-		dto.setCreatedOn(new Date().toString());
+		dto.setEmployeeId(200);
+		dto.setEmployeeNumber("EMP018");
+		dto.setEmailId("Testing@gmail.com");
+		dto.setPassword("Pav@0211");
+		dto.setCreatedBy(1);
 		
-		
-		
-		
-		
+		dto.setCreatedOn(formattedDate);
+		System.out.println("formatted Date :: " + formattedDate);
 		
 		
 		Integer count = emp.registerEmployee(dto);
 		
-		System.out.println(count>=0 ?"employee Registration Successfully" : "Failed to register the employee");
+		System.out.println(count ==1 ?"employee Registration Successfully" : "Failed to register the employee");
 		
 		System.out.println("********************************************************************************");
 

@@ -17,7 +17,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
 	private static final String GET_EMPLOYEE_BY_PASSWORD 	= "SELECT EMPLOYEEID, EMPLOYEENUMBER, EMAILID, PASSWORD, CREATEDBY,CREATEDON FROM EMPLOYEE WHERE PASSWORD IN (:pas1,:pas2,:pas3)";
 	private static final String SELECT_EMPL_BY_ENO 			= "SELECT EMAILID FROM EMPLOYEE WHERE EMPLOYEENUMBER=:NO";
-	private static final String REGISTER_EMPLOYEE 			= "INSERT INTO EMPLOYEE (employeeId,employeeNumber,emailId,password,createdBy,createdOn) VALUES (:employeeId,:employeeNumber,:emailId,:createdBy,:createdOn)";
+	private static final String REGISTER_EMPLOYEE 			= "INSERT INTO EMPLOYEE (employeeId,employeeNumber,emailId,password,createdBy,createdOn) VALUES (:employeeId,:employeeNumber,:emailId,:password,:createdBy,:createdOn)";
 	@Autowired
 	private NamedParameterJdbcTemplate template;
 
