@@ -28,7 +28,6 @@ public class Application {
 			System.out.println("Employee Name By Using the QueryForObject(query, Returntype, Eno) :: " + empName);
     		
 			System.out.println();
-			System.out.println();
 			
 			Map<String, Object> empFullData = emp.getEmployeeDetailsByNo(2);
 			System.out.println("Query For Map Employeee Details by No : " + empFullData);
@@ -47,7 +46,7 @@ public class Application {
 			System.out.println("Add Bonus By Address:: HYD, 100000");
 			int bonusToEmpByAddress = emp.addBonusToEmpByAddress("HYD", 100000);
 			System.out.println(bonusToEmpByAddress>=0 ? "Bonus Added Successfull ":"Failed to Add bonus");
-			
+			System.out.println();			
 			
 			
 		} catch (Exception e) {
