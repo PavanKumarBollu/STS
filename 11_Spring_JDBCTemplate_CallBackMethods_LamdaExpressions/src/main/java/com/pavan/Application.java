@@ -23,11 +23,10 @@ public class Application {
 		System.out.println();
 		
 		System.out.println("Students Details by names:: ");
-		
 		List<StudentDto> stdNames = stdBean.getStudentsByNames("Pavan", "Krishna");
 		stdNames.forEach(System.out::println);
 		System.out.println();
-		
+		System.out.println("Get students Deatils by Address:::");
 		List<StudentDto> stdNamesbyAddress = stdBean.getStudentsByAddress("HYDERABAD", "MI");
 		stdNamesbyAddress.forEach(System.out::println);
 		
