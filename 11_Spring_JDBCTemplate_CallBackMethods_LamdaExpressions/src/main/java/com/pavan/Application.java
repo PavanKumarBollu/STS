@@ -26,7 +26,10 @@ public class Application {
 		
 		List<StudentDto> stdNames = stdBean.getStudentsByNames("Pavan", "Krishna");
 		stdNames.forEach(System.out::println);
+		System.out.println();
 		
+		List<StudentDto> stdNamesbyAddress = stdBean.getStudentsByAddress("HYDERABAD", "MI");
+		stdNamesbyAddress.forEach(System.out::println);
 		
 		
 		((ConfigurableApplicationContext) context).close();

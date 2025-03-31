@@ -44,8 +44,17 @@ public class StudentMngtServiceImpl implements IStudentMngtService{
 
 	@Override
 	public List<StudentDto> getStudentsByAddress(String addr1, String addr2) {
-		// TODO Auto-generated method stub
-		return null;
+
+		List<StudentDto> dtos = new ArrayList<StudentDto>();
+		
+		List<StudentBo> bos = dao.getStudentsByAddress(addr1, addr2);
+		bos.forEach(bo->{
+			StudentDto dto = new StudentDto();
+			BeanUtils.copyProperties(bo, dto);
+			dtos.add(dto);
+		});
+		
+		return dtos;
 	}
 
 	

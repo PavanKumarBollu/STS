@@ -2,10 +2,13 @@ package com.pavan.dao;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +19,7 @@ public class StudentDaoImpl implements IStudentDao {
 
 	private static final String GET_STUDENT_BY_NO 		= "SELECT SID, SNAME, SAGE, SADDRESS FROM STUDENT WHERE SID =?";
 	private static final String GET_STUDENTS_BY_NAMES 	= "SELECT SID, SNAME, SAGE, SADDRESS FROM STUDENT WHERE SNAME IN (?,?)";
+	private static final String GET_STUDENTS_BY_ADDRESS = "SELECT SID, SNAME, SAGE, SADDRESS FROM STUDENT WHERE SADDRESS IN (?,?)";
 	@Autowired
 	private JdbcTemplate template;
 
@@ -56,9 +60,20 @@ public class StudentDaoImpl implements IStudentDao {
 
 	@Override
 	public List<StudentBo> getStudentsByAddress(String addr1, String addr2) {
+		return template.query(GET_STUDENTS_BY_ADDRESS, new ResultSetExtractor<List<StudentBo>>() {
+
+			@Override
+			public List<StudentBo> extractData(ResultSet rs) throws SQLException, DataAccessException {
+				List<StudentBo> bo = new ArrayList<StudentBo>();
+				StudentBo stdbo = new StudentBo();
+				stdbo.setsId(rs.getInt("sid"));
+				stdbo.setsName(rs.getString("sName"));
+				stdbo.setsAge(rs.getInt("sAge"));
+				stdbo.setsAddress(rs.getString("sAddress"));
+				bo.add(stdbo);
+				return bo;
+			}},addr1, addr2);
 		
-		
-		return null;
 	}
 
 }
