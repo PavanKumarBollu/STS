@@ -1,5 +1,8 @@
 package com.pavan;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,8 +19,22 @@ public class App
     	try {
 			int count = emp.fetchEmpsCount();
 			System.out.println("total Number of employees are :: " +count);
+			
+			
+			String empName = emp.getEmployeeNameByNo(2);
+			System.out.println("Employee Name By Using the QueryForObject(query, Returntype, Eno) :: " + empName);
     		
+			System.out.println();
+			System.out.println();
+			
+			Map<String, Object> empFullData = emp.getEmployeeDetailsByNo(2);
+			System.out.println("Query For Map Employeee Details by No : " + empFullData);
+			
     		
+			System.out.println();
+			List<Map<String, Object>> list = emp.getEmployeeDeatilsByAddress("HYD", "PY");
+			System.out.println("Query For List Employees Details by Address : " );
+			list.forEach(System.out::println);
 		} catch (Exception e) {
 			System.out.println("Exception came " + e.getMessage());
 			e.printStackTrace();

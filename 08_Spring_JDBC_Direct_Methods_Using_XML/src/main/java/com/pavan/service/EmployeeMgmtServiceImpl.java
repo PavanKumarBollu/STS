@@ -20,17 +20,17 @@ public class EmployeeMgmtServiceImpl implements IEmployeeMangementService {
 
 	@Override
 	public String getEmployeeNameByNo(int eno) {
-		return null;
+		return dao.getEmployeeNameByNo(eno);
 	}
 
 	@Override
 	public Map<String, Object> getEmployeeDetailsByNo(int eno) {
-		return null;
+		return dao.getEmployeeDetailsByNo(eno);
 	}
 
 	@Override
-	public List<Map<String, Object>> getEmployeeDeatilsByDesignation(String desg1, String desg2) {
-		return null;
+	public List<Map<String, Object>> getEmployeeDeatilsByAddress(String addr1, String addr2) {
+		return dao.getEmployeeDeatilsByAddress(addr1, addr2);
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class EmployeeMgmtServiceImpl implements IEmployeeMangementService {
 	}
 
 	@Override
-	public int addBonusToEmpByDesg(String desg, int bonus) {
+	public int addBonusToEmpByAddress(String addr, int bonus) {
 		return 0;
 	}
 

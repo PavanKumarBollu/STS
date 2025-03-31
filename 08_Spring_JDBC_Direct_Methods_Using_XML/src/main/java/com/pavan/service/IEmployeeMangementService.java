@@ -10,9 +10,9 @@ public interface IEmployeeMangementService {
 
 	public Map<String, Object> getEmployeeDetailsByNo(int eno);
 
-	public List<Map<String, Object>> getEmployeeDeatilsByDesignation(String desg1, String desg2);
+	public List<Map<String, Object>> getEmployeeDeatilsByAddress(String addr1, String addr2);
 
 	public int insertEmp(String ename, int eage, String eaddress, String desg, int salary);
 
-	public int addBonusToEmpByDesg(String desg, int bonus);
+	public int addBonusToEmpByAddress(String addr, int bonus);
 }

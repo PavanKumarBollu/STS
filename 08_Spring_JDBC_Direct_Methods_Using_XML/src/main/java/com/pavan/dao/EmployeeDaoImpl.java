@@ -7,7 +7,16 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 public class EmployeeDaoImpl implements IEmployeeDao {
 
-	private static final String SQL_SELECT_QUERY = "SELECT COUNT(*) FROM STUDENT";
+	private static final String SQL_SELECT_QUERY = "SELECT COUNT(*) FROM EMPLOYEE";
+
+
+	private static final String SELECT_NAME_BY_ID = "SELECT ENAME FROM EMPLOYEE WHERE EID = ?";
+
+
+	private static final String GET_EMPLOYEE_DETAILS_BY_ID 	= "SELECT EID, ENAME, Eaddress, ESALARY FROM EMPLOYEE WHERE EID = ? ";
+
+
+	private static final String GET_EMPLOYEES_BY_ADDRESS 	= "SELECT EID, ENAME, EADDRESS, ESALARY FROM EMPLOYEE WHERE EAddress IN (?,?)";
 	
 	
 	private JdbcTemplate jdbcTemplate;
@@ -18,9 +27,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	
 	
 
-	public EmployeeDaoImpl() {
-	}
-
+	
 
 
 	@Override
@@ -30,26 +37,28 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
 	@Override
 	public String getEmployeeNameByNo(int eno) {
-		return null;
+		return jdbcTemplate.queryForObject(SELECT_NAME_BY_ID, String.class, eno);
 	}
 
 	@Override
 	public Map<String, Object> getEmployeeDetailsByNo(int eno) {
-		return null;
+		Map<String, Object> map = jdbcTemplate.queryForMap(GET_EMPLOYEE_DETAILS_BY_ID, eno);
+		return map;
 	}
 
 	@Override
-	public List<Map<String, Object>> getEmployeeDeatilsByDesignation(String desg1, String desg2) {
-		return null;
+	public List<Map<String, Object>> getEmployeeDeatilsByAddress(String addr1, String addr2) {
+		List<Map<String, Object>> list = jdbcTemplate.queryForList(GET_EMPLOYEES_BY_ADDRESS, addr1, addr2);
+		return list;
 	}
 
 	@Override
-	public int insertEmp(String ename, int eage, String eaddress, String desg, int salary) {
+	public int insertEmp(String ename, String eaddress,int salary) {
 		return 0;
 	}
 
 	@Override
-	public int addBonusToEmpByDesg(String desg, int bonus) {
+	public int addBonusToEmpByAddress(String desg, int bonus) {
 		return 0;
 	}
 
