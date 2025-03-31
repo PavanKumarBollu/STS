@@ -8,5 +8,6 @@
   <description>Practicing the maven Multi Module Project Creation</description>
   <modules>
     <module>13_Maven_SubModule_WishMessage</module>
+    <module>13_Maven_SubModule_UseWishMessage</module>
   </modules>
 </project>
