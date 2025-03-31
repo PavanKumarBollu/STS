@@ -5,18 +5,17 @@ import java.util.Map;
 
 import com.pavan.dao.IEmployeeDao;
 
-public class EmloyeeMgmtServiceImpl implements IEmployeeMangementService {
+public class EmployeeMgmtServiceImpl implements IEmployeeMangementService {
 
 	private IEmployeeDao dao;
 	
-	public EmloyeeMgmtServiceImpl(IEmployeeDao dao) {
+	public EmployeeMgmtServiceImpl(IEmployeeDao dao) {
 		this.dao = dao;
 	}
 
 	@Override
 	public int fetchEmpsCount() {
-		
-		return 0;
+		return dao.getEmpsCount();
 	}
 
 	@Override

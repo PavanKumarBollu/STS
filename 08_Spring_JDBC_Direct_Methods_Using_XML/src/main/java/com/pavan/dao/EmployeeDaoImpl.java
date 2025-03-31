@@ -6,17 +6,26 @@ import java.util.Map;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class EmployeeDaoImpl implements IEmployeeDao {
+
+	private static final String SQL_SELECT_QUERY = "SELECT COUNT(*) FROM STUDENT";
+	
 	
 	private JdbcTemplate jdbcTemplate;
-	
-	
+
 	public EmployeeDaoImpl(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
+	
+	
+
+	public EmployeeDaoImpl() {
+	}
+
+
 
 	@Override
 	public int getEmpsCount() {
-		return 0;
+		return jdbcTemplate.queryForObject(SQL_SELECT_QUERY, Integer.class);
 	}
 
 	@Override
