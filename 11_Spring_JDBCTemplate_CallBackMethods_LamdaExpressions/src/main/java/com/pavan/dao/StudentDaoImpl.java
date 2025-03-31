@@ -7,9 +7,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.RowMapperResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import com.pavan.bo.StudentBo;
@@ -80,7 +82,14 @@ public class StudentDaoImpl implements IStudentDao {
 		
 		
 //		Second Way of doing the same task
+		
+//		return template.query(GET_STUDENTS_BY_ADDRESS, new RowMapperResultSetExtractor<StudentBo>(new BeanPropertyRowMapper<StudentBo>(StudentBo.class)),addr1,addr2);
 
+		// 3rd Way of doing the same task
+		
+		
+		
+		
 	}
 
 }
