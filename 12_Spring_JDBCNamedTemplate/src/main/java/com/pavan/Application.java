@@ -1,5 +1,7 @@
 package com.pavan;
 
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
@@ -27,6 +29,28 @@ public class Application {
 
 		String email = emp.getEmployeMailByEmpNumber("EMP143");
 		System.out.println("Employee Mail Which You Are Locking for is: " + email);
+		System.out.println("********************************************************************************");
+		System.out.println();
+		System.out.println("********************************************************************************");
+		
+		EmployeeDto dto = new EmployeeDto();
+		dto.setEmployeeId(null);
+		dto.setEmployeeNumber(null);
+		dto.setEmailId(email);
+		dto.setPassword(email);
+		dto.setCreatedBy(null);
+		dto.setCreatedOn(new Date().toString());
+		
+		
+		
+		
+		
+		
+		
+		Integer count = emp.registerEmployee(dto);
+		
+		System.out.println(count>=0 ?"employee Registration Successfully" : "Failed to register the employee");
+		
 		System.out.println("********************************************************************************");
 
 		System.out.println(new java.util.Date());

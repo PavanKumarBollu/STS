@@ -31,9 +31,10 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	}
 
 	@Override
-	public Integer registerEmployee(EmployeeDto bo) {
-		// TODO Auto-generated method stub
-		return null;
+	public Integer registerEmployee(EmployeeDto dto) {
+		EmployeeBo bo = new EmployeeBo();
+		BeanUtils.copyProperties(dto, bo);
+		return dao.registerEmployee(bo);
 	}
 
 	@Override

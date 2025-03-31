@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
 	private static final String GET_EMPLOYEE_BY_PASSWORD 	= "SELECT EMPLOYEEID, EMPLOYEENUMBER, EMAILID, PASSWORD, CREATEDBY,CREATEDON FROM EMPLOYEE WHERE PASSWORD IN (:pas1,:pas2,:pas3)";
 	private static final String SELECT_EMPL_BY_ENO 			= "SELECT EMAILID FROM EMPLOYEE WHERE EMPLOYEENUMBER=:NO";
+	private static final String REGISTER_EMPLOYEE 			= "INSERT INTO EMPLOYEE (employeeId,employeeNumber,emailId,password,createdBy,createdOn) VALUES (:employeeId,:employeeNumber,:emailId,:createdBy,:createdOn)";
 	@Autowired
 	private NamedParameterJdbcTemplate template;
 
@@ -47,8 +49,9 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
 	@Override
 	public Integer registerEmployee(EmployeeBo bo) {
-		// TODO Auto-generated method stub
-		return null;
+		BeanPropertySqlParameterSource source = new BeanPropertySqlParameterSource(bo);
+		int count = template.update(REGISTER_EMPLOYEE, source);
+		return count;
 	}
 
 	@Override
