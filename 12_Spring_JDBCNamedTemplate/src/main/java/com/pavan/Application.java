@@ -15,17 +15,22 @@ public class Application {
 
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(Application.class, args);
-		
 
-		
 		System.out.println();
 		EmployeeServiceImpl emp = context.getBean(EmployeeServiceImpl.class);
 		System.out.println("Employee Details by Password is :: ");
-		List<EmployeeDto> empDetailsByPassword = emp.getEmployeessByPassword("mypassword", "password123", "strongpass1");
+		List<EmployeeDto> empDetailsByPassword = emp.getEmployeessByPassword("mypassword", "password123",
+				"strongpass1");
 		empDetailsByPassword.forEach(System.out::println);
-		
+
+		System.out.println("********************************************************************************");
+
+		String email = emp.getEmployeMailByEmpNumber("EMP143");
+		System.out.println("Employee Mail Which You Are Locking for is: " + email);
+		System.out.println("********************************************************************************");
+
 		System.out.println(new java.util.Date());
-		
+
 		((ConfigurableApplicationContext) context).close();
 	}
 

@@ -7,5 +7,5 @@ import com.pavan.dto.EmployeeDto;
 public interface IEmployeeService {
 	public List<EmployeeDto> getEmployeessByPassword(String pas1, String pas2, String pas3);
 	public Integer registerEmployee(EmployeeDto bo);
-	public EmployeeDto getEmployeByEmpNumber(String empNumber);
+	public String getEmployeMailByEmpNumber(String empNumber);
 }

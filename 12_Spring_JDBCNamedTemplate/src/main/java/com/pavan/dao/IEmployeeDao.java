@@ -7,6 +7,6 @@ import com.pavan.bo.EmployeeBo;
 public interface IEmployeeDao {
 	public List<EmployeeBo> getEmployeessByPassword(String pas1, String pas2, String pas3);
 	public Integer registerEmployee(EmployeeBo bo);
-	public EmployeeBo getEmployeByEmpNumber(String empNumber);
+	public String getEmployeMailByEmpNumber(String empNumber);
 	
 }

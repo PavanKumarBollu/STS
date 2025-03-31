@@ -2,6 +2,7 @@ package com.pavan.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -13,7 +14,8 @@ import com.pavan.bo.EmployeeBo;
 @Repository
 public class EmployeeDaoImpl implements IEmployeeDao {
 
-	private static final String GET_EMPLOYEE_BY_PASSWORD = "SELECT EMPLOYEEID, EMPLOYEENUMBER, EMAILID, PASSWORD, CREATEDBY,CREATEDON FROM EMPLOYEE WHERE PASSWORD IN (:pas1,:pas2,:pas3)";
+	private static final String GET_EMPLOYEE_BY_PASSWORD 	= "SELECT EMPLOYEEID, EMPLOYEENUMBER, EMAILID, PASSWORD, CREATEDBY,CREATEDON FROM EMPLOYEE WHERE PASSWORD IN (:pas1,:pas2,:pas3)";
+	private static final String SELECT_EMPL_BY_ENO 			= "SELECT EMAILID FROM EMPLOYEE WHERE EMPLOYEENUMBER=:NO";
 	@Autowired
 	private NamedParameterJdbcTemplate template;
 
@@ -50,9 +52,10 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	}
 
 	@Override
-	public EmployeeBo getEmployeByEmpNumber(String empNumber) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getEmployeMailByEmpNumber(String empNumber) {
+		Map<String, String> map = Map.of("NO", empNumber);
+		return template.queryForObject(SELECT_EMPL_BY_ENO, map, String.class);
+		
 	}
 
 }

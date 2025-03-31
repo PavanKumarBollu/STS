@@ -37,9 +37,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 	}
 
 	@Override
-	public EmployeeDto getEmployeByEmpNumber(String empNumber) {
-		// TODO Auto-generated method stub
-		return null;
+	public String getEmployeMailByEmpNumber(String empNumber) {
+		return dao.getEmployeMailByEmpNumber(empNumber);
 	}
 
 }
