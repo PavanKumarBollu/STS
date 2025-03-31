@@ -35,6 +35,18 @@ public class App
 			List<Map<String, Object>> list = emp.getEmployeeDeatilsByAddress("HYD", "PY");
 			System.out.println("Query For List Employees Details by Address : " );
 			list.forEach(System.out::println);
+			System.out.println();
+			System.out.println("Inserting the Employee Using the Update method : " );
+			int empInsert = emp.insertEmp("SpringJdbc", "Spring", 100000);
+			
+			System.out.println(empInsert==1?"Employee Record Inserted":"Employee Record Insertiong Failed");
+			System.out.println();
+			System.out.println("Add Bonus By Address:: HYD, 100000");
+			int bonusToEmpByAddress = emp.addBonusToEmpByAddress("HYD", 100000);
+			System.out.println(bonusToEmpByAddress>=0 ? "Bonus Added Successfull ":"Failed to Add bonus");
+			
+			
+			
 		} catch (Exception e) {
 			System.out.println("Exception came " + e.getMessage());
 			e.printStackTrace();

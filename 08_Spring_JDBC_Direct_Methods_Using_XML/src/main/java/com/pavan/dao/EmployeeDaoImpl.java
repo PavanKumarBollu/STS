@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
 
 public class EmployeeDaoImpl implements IEmployeeDao {
 
@@ -17,6 +18,12 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 
 
 	private static final String GET_EMPLOYEES_BY_ADDRESS 	= "SELECT EID, ENAME, EADDRESS, ESALARY FROM EMPLOYEE WHERE EAddress IN (?,?)";
+
+
+	private static final String INSERT_EMPLOYEE_QUERY = "INSERT INTO EMPLOYEE(ENAME, EADDRESS, ESALARY) VALUES(?,?,?)";
+
+
+	private static final String ADD_BONUS_BY_ADDRESS = "UPDATE EMPLOYEE SET ESALARY = ESALARY + ? WHERE EADDRESS = ?";
 	
 	
 	private JdbcTemplate jdbcTemplate;
@@ -53,13 +60,14 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	}
 
 	@Override
-	public int insertEmp(String ename, String eaddress,int salary) {
-		return 0;
+	public int insertEmp(String ename, String eaddress,int esalary) {
+		return jdbcTemplate.update(INSERT_EMPLOYEE_QUERY, ename, eaddress, esalary);
+		
 	}
 
 	@Override
-	public int addBonusToEmpByAddress(String desg, int bonus) {
-		return 0;
+	public int addBonusToEmpByAddress(String addr, int bonus) {
+		return jdbcTemplate.update(ADD_BONUS_BY_ADDRESS, bonus,addr );
 	}
 
 }

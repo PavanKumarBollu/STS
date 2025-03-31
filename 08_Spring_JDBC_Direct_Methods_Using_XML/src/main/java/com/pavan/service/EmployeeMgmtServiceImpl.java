@@ -8,7 +8,7 @@ import com.pavan.dao.IEmployeeDao;
 public class EmployeeMgmtServiceImpl implements IEmployeeMangementService {
 
 	private IEmployeeDao dao;
-	
+
 	public EmployeeMgmtServiceImpl(IEmployeeDao dao) {
 		this.dao = dao;
 	}
@@ -34,13 +34,13 @@ public class EmployeeMgmtServiceImpl implements IEmployeeMangementService {
 	}
 
 	@Override
-	public int insertEmp(String ename, int eage, String eaddress, String desg, int salary) {
-		return 0;
+	public int insertEmp(String ename, String eaddress, int salary) {
+		return dao.insertEmp(ename, eaddress, salary);
 	}
 
 	@Override
 	public int addBonusToEmpByAddress(String addr, int bonus) {
-		return 0;
+		return dao.addBonusToEmpByAddress(addr, bonus);
 	}
 
 }

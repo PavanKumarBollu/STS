@@ -12,7 +12,7 @@ public interface IEmployeeMangementService {
 
 	public List<Map<String, Object>> getEmployeeDeatilsByAddress(String addr1, String addr2);
 
-	public int insertEmp(String ename, int eage, String eaddress, String desg, int salary);
+	public int insertEmp(String ename, String eaddress,  int salary);
 
 	public int addBonusToEmpByAddress(String addr, int bonus);
 }
