@@ -40,15 +40,7 @@ public class StudentDaoImpl implements IStudentDao {
 
 	@Override
 	public List<StudentBo> getStudentsByNames(String name1, String name2) {
-		List<StudentBo> BO = template.query(GET_STUDENTS_BY_NAMES,new StudentsRowMapper(),name1, name2);
-		
-		return BO;
-	}
-
-	private static class StudentsRowMapper implements RowMapper<StudentBo> {
-
-		@Override
-		public StudentBo mapRow(ResultSet rs, int rowNum) throws SQLException {
+		List<StudentBo> BO = template.query(GET_STUDENTS_BY_NAMES,(rs, num)->{
 			StudentBo bo = null;
 			bo = new StudentBo();
 			bo.setsId(rs.getInt("sid"));
@@ -56,8 +48,17 @@ public class StudentDaoImpl implements IStudentDao {
 			bo.setsAge(rs.getInt("sAge"));
 			bo.setsAddress(rs.getString("sAddress"));
 			return bo;
-		}
+		},name1, name2);
+		
+		return BO;
+	}
 
+
+	@Override
+	public List<StudentBo> getStudentsByAddress(String addr1, String addr2) {
+		
+		
+		return null;
 	}
 
 }

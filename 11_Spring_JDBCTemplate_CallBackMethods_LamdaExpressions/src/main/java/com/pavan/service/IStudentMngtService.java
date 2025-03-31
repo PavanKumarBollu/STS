@@ -7,4 +7,5 @@ import com.pavan.dto.StudentDto;
 public interface IStudentMngtService {
 	public StudentDto getStudentByNo(int sNo);
 	public List<StudentDto> getStudentsByNames(String name1, String name2);
+	public List<StudentDto> getStudentsByAddress(String addr1, String addr2);
 }

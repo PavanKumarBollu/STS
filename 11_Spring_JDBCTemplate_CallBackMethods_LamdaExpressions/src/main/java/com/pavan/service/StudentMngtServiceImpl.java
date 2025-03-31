@@ -42,5 +42,11 @@ public class StudentMngtServiceImpl implements IStudentMngtService{
 		
 	}
 
+	@Override
+	public List<StudentDto> getStudentsByAddress(String addr1, String addr2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }
