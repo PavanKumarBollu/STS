@@ -3,9 +3,12 @@ package com.pavan.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class EmployeeDaoImpl implements IEmployeeDao {
 
 	private static final String SQL_SELECT_QUERY = "SELECT COUNT(*) FROM EMPLOYEE";
@@ -26,6 +29,7 @@ public class EmployeeDaoImpl implements IEmployeeDao {
 	private static final String ADD_BONUS_BY_ADDRESS = "UPDATE EMPLOYEE SET ESALARY = ESALARY + ? WHERE EADDRESS = ?";
 	
 	
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
 	public EmployeeDaoImpl(JdbcTemplate jdbcTemplate) {
