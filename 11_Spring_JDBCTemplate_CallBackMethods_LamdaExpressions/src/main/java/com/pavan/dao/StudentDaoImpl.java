@@ -6,12 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.RowMapperResultSetExtractor;
 import org.springframework.stereotype.Repository;
 
 import com.pavan.bo.StudentBo;
@@ -87,9 +84,25 @@ public class StudentDaoImpl implements IStudentDao {
 
 		// 3rd Way of doing the same task
 		
+		List<StudentBo> stdbos = new ArrayList<StudentBo>();
 		
+		template.query(GET_STUDENTS_BY_ADDRESS,new RowCallbackHandler() {
+
+			@Override
+			public void processRow(ResultSet rs) throws SQLException {
+
+				StudentBo stdbo = new StudentBo();
+			
+				stdbo.setsId(rs.getInt("sid"));
+				stdbo.setsName(rs.getString("sName"));
+				stdbo.setsAge(rs.getInt("sAge"));
+				stdbo.setsAddress(rs.getString("sAddress"));
+				stdbos.add(stdbo);
+			}
+			
+		} ,addr1, addr2);
 		
-		
+		return stdbos;
 	}
 
 }
